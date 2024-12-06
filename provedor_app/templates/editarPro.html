@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+<br>
+<div class='row'><!--fila-->
+    <div class="col-md-4 offset-md-4"><!--columna 1-->      
+        <H4>Editar</H4>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editPro/" method="POST"> {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control"
+                        value="{{mProvedors.id_prove}}" minlength="5" maxlength="5"  readonly required>
+                    </div>
+                    <div class="form-group py-3" >
+                        <input type="text" id="txtnom" name="txtnom" class="form-control"
+                        value="{{mProvedors.nombre}}" maxlength="100" required>
+                    </div>
+                    <div class="form-group ">
+                        <input type="number" id="can" name="can" class="form-control"
+                        value="{{mProvedors.cantidad}}" maxlength="250">
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="date" id="fen" name="fen" class="form-control"
+                        value="{{mProvedors.fecha_entre}}" maxlength="250">
+                    </div>
+                    <div class="form-group ">
+                        <input type="number" id="tel" name="tel" class="form-control"
+                        value="{{mProvedors.telefono}}" maxlength="10">
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="est" name="est" class="form-control"
+                        value="{{mProvedors.estado}}" maxlength="250" required>
+                    </div>
+                    <div class="form-group ">
+                        <input type="text" id="ins" name="ins" class="form-control"
+                        value="{{mProvedors.instrument}}" maxlength="250">
+                    </div>
+                    <div class="form-group py-3">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div><!--FROMULARIO-->
+                </form>
+                <!--This is some text within a card body.-->
+            </div>
+        </div><!--tarjeta-->
+    </div>
+<!--{{mProvedors.id_emple}}-->
+{% endblock %}

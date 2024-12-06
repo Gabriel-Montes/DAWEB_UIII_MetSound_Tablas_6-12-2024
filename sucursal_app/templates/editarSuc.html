@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+<br>
+<div class='row'><!--fila-->
+    <div class="col-md-4 offset-md-4"><!--columna 1-->      
+        <H4>Editar</H4>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editSuc/" method="POST"> {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control"
+                        value="{{mSucursals.id_sucursal}}" minlength="5" maxlength="5"  readonly required>
+                    </div>
+                    <div class="form-group py-3" >
+                        <input type="text" id="txtnom" name="txtnom" class="form-control"
+                        value="{{mSucursals.nombre}}" maxlength="100" required>
+                    </div>
+                    <div class="form-group ">
+                        <input type="text" id="direc" name="direc" class="form-control"
+                        value="{{mSucursals.direccion}}" maxlength="250">
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="esp" name="esp" class="form-control"
+                        value="{{mSucursals.espacio}}" maxlength="250">
+                    </div>
+                    <div class="form-group ">
+                        <input type="text" id="ins" name="ins" class="form-control"
+                        value="{{mSucursals.instrument}}" maxlength="10">
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="number" id="can" name="can" class="form-control"
+                        value="{{mSucursals.cantidad}}" maxlength="250" required>
+                    </div>
+                    <div class="form-group ">
+                        <input type="text" id="enc" name="enc" class="form-control"
+                        value="{{mSucursals.encargado}}" maxlength="250">
+                    </div>
+                    <div class="form-group py-3">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div><!--FROMULARIO-->
+                </form>
+                <!--This is some text within a card body.-->
+            </div>
+        </div><!--tarjeta-->
+    </div>
+<!--{{mSucursals.id_emple}}-->
+{% endblock %}
